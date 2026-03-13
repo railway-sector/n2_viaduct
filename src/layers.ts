@@ -313,10 +313,10 @@ export const viaductLayer = new SceneLayer({
           {
             fieldName: "CP",
           },
-          {
-            fieldName: "planned_date",
-            label: "Target Date",
-          },
+          // {
+          //   fieldName: "planned_date",
+          //   label: "Target Date",
+          // },
           {
             fieldName: "uniqueID",
           },
