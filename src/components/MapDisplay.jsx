@@ -10,11 +10,13 @@ import "@arcgis/map-components/components/arcgis-layer-list";
 import "@arcgis/map-components/components/arcgis-expand";
 import "@arcgis/map-components/components/arcgis-placement";
 import "@arcgis/map-components/components/arcgis-compass";
+import "@arcgis/map-components/components/arcgis-search";
 import { alignmentGroupLayer, stationLayer, viaductLayer } from "../layers";
 
 function MapDisplay() {
   const [sceneView, setSceneView] = useState();
   const arcgisScene = document.querySelector("arcgis-scene");
+  const arcgisSearch = document.querySelector("arcgis-search");
 
   useEffect(() => {
     if (sceneView) {
@@ -25,6 +27,21 @@ function MapDisplay() {
       arcgisScene.view.environment.atmosphereEnabled = false;
       arcgisScene.view.environment.starsEnabled = false;
       arcgisScene.view.ui.components = [];
+
+      arcgisSearch.sources = [
+        {
+          layer: viaductLayer,
+          searchFields: ["PierNumber"],
+          displayField: "PierNumber",
+          exactMatch: false,
+          outFields: ["PierNumber"],
+          name: "Pier Number",
+          placeholder: "example: P-1011",
+        },
+      ];
+
+      arcgisSearch.includeDefaultSourcesDisabled = true;
+      arcgisSearch.locationDisabled = true;
     }
   });
 
@@ -42,6 +59,9 @@ function MapDisplay() {
     >
       <arcgis-compass slot="top-right"></arcgis-compass>
       <arcgis-zoom slot="bottom-right"></arcgis-zoom>
+      <arcgis-expand close-on-esc slot="top-right" mode="floating">
+        <arcgis-search></arcgis-search>
+      </arcgis-expand>
     </arcgis-scene>
   );
 }
