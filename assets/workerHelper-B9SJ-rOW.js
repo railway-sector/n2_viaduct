@@ -1,1 +1,0 @@
-import{jn as f,jo as t}from"./index-C8_nYniG.js";function n(u,e){return e.push(u.buffer),{buffer:u.buffer,layout:new f(u.layout)}}function o(u){return new t(u.layout).createView(u.buffer)}export{o as t,n as u};
