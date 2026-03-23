@@ -314,11 +314,16 @@ export const viaductLayer = new SceneLayer({
             fieldName: "CP",
           },
           {
-            fieldName: "nPierNumber",
+            fieldName: "PierNumber",
             label: "Pier Number",
           },
           {
+            fieldName: "PileNo",
+            label: "Pile No",
+          },
+          {
             fieldName: "uniqueID",
+            label: "uniqueID",
           },
         ],
       },

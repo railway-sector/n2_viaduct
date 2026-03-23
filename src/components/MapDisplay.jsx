@@ -38,6 +38,15 @@ function MapDisplay() {
           name: "Pier Number",
           placeholder: "example: P-1011",
         },
+        {
+          layer: viaductLayer,
+          searchFields: ["uniqueID"],
+          displayField: "uniqueID",
+          exactMatch: false,
+          outFields: ["uniqueID"],
+          name: "uniqueID",
+          placeholder: "example: 12345",
+        },
       ];
 
       arcgisSearch.includeDefaultSourcesDisabled = true;
